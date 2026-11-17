@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TL11A Tuition Tax Credit — Canadian Students at U.S. Universities | Crosscheck</title>
+<meta name="description" content="Estimate the Canadian tuition tax credit on U.S. university tuition with Form TL11A, see what a parent can save this year, and get every step to claim it.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* layout: one narrow column: mode toggle, hook, 3-step path, residency gate, upload, inputs, one-number estimate, claim steps, email, transfer, missed years, tracker, folder, filing sheet, kit */
+:root{
+  --bg:#F3F5F8; --card:#FFFFFF; --ink:#0F1B2D; --muted:#4B5565; --line:#D5DBE5;
+  --accent:#1D4ED8; --warn:#9A3412; --warnbg:#FFF1E0; --hero:#0F1B2D; --heroink:#FFFFFF; --heromuted:#C7D2E3;
+  --display:'Archivo',system-ui,sans-serif; --body:'Public Sans',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1220; --card:#141D2E; --ink:#EEF2F8; --muted:#A9B4C6; --line:#2A364B;
+    --accent:#8FB0FF; --warn:#FDBA74; --warnbg:#3A2412; --hero:#1B2A47; --heroink:#FFFFFF; --heromuted:#C7D2E3;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1220; --card:#141D2E; --ink:#EEF2F8; --muted:#A9B4C6; --line:#2A364B;
+  --accent:#8FB0FF; --warn:#FDBA74; --warnbg:#3A2412; --hero:#1B2A47; --heroink:#FFFFFF; --heromuted:#C7D2E3;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+main{max-width:640px;margin:0 auto;padding:20px 16px 48px;display:flex;flex-direction:column;gap:16px}
+h1,h2{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-0.4px}
+h1{font-size:30px;line-height:1.1;font-weight:800}
+h2{font-size:19px;font-weight:800}
+p{margin:0}
+.hero{background:var(--hero);color:var(--heroink);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.hero p{color:var(--heromuted)}
+.brand{font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:.3px}
+.card{background:var(--card);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:460px){.grid{grid-template-columns:1fr}}
+label{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:600}
+input,select{font:inherit;font-weight:400;min-height:44px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.hint{font-size:13px;font-weight:400;color:var(--muted)}
+.big{font-family:var(--display);font-weight:800;font-size:44px;letter-spacing:-1px;line-height:1;font-variant-numeric:tabular-nums}
+.row{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:10px 0;border-top:1px solid var(--line)}
+.row b{font-family:var(--display);font-size:18px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.row span{font-size:14px}
+.row small{display:block;color:var(--muted);font-size:13px}
+.warn{background:var(--warnbg);border-radius:12px;padding:12px 14px;font-size:14px}
+.warn strong{color:var(--warn)}
+ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+li{display:flex;gap:12px;font-size:14px}
+li .d{flex:0 0 76px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+button{font:inherit;font-weight:600;min-height:44px;padding:0 16px;border-radius:10px;border:1px solid var(--ink);background:var(--card);color:var(--ink);cursor:pointer}
+button[aria-pressed="true"]{background:var(--ink);color:var(--card)}
+.fine{font-size:12.5px;color:var(--muted)}
+textarea{font:inherit;font-weight:400;font-size:14px;line-height:1.45;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;resize:vertical}
+textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.slot{border-top:1px solid var(--line);padding:12px 0;display:flex;flex-direction:column;gap:8px}
+.slot .head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;font-size:15px;font-weight:600}
+.pill{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap;border:1px solid var(--line);color:var(--muted)}
+.pill.done{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.pill.miss{background:var(--warnbg);color:var(--warn);border-color:var(--warnbg)}
+.frow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px}
+.frow .nm{flex:1 1 160px;overflow-wrap:anywhere}
+.slot button,.slot .add{min-height:44px;padding:0 12px;font-size:14px}
+.slot .add{display:inline-flex;align-items:center;border:1px dashed var(--ink);border-radius:10px;font-weight:600;cursor:pointer;width:max-content}
+.slot .add input{position:absolute;width:1px;height:1px;min-height:0;opacity:0;padding:0;border:0}
+.slot .add:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+#pvBody img,#pvBody canvas{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px;display:block;margin-bottom:8px}
+.sheetgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media (max-width:460px){.sheetgrid{grid-template-columns:1fr}}
+.sheetgrid label{font-size:13px}
+.shout{font-size:14px}
+.shout b{font-family:var(--display);font-size:17px}
+.stepsbox{display:flex;flex-direction:column}
+.stepsbox label{flex-direction:row;align-items:flex-start;gap:12px;font-weight:400;padding:12px 0;border-top:1px solid var(--line)}
+.stepsbox input{width:22px;min-height:22px;height:22px;flex:0 0 22px;padding:0;margin-top:2px}
+.stepsbox b{display:block;font-size:15px}
+.stepsbox .when{display:block;font-size:12.5px;font-weight:600;color:var(--accent)}
+.stepsbox span.t{font-size:14px}
+h3{font-family:var(--display);font-size:15px;font-weight:800;margin:0 0 6px}
+ol.steps{margin:0;padding-left:20px;display:block}
+ol.steps li{display:list-item;font-size:14px;margin-bottom:6px}
+.lines{display:flex;flex-direction:column;gap:2px;margin-top:8px}
+.lines label{flex-direction:row;align-items:center;gap:10px;font-weight:400;min-height:44px;border-top:1px solid var(--line)}
+.lines input{width:20px;min-height:20px;height:20px;flex:0 0 20px;padding:0}
+.lines .amt{margin-left:auto;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+[hidden]{display:none!important}
+.disc{font-size:13px;font-weight:600;color:var(--warn);background:var(--warnbg);border-radius:8px;padding:8px 10px}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:7px 8px;border-top:1px solid var(--line);white-space:nowrap}
+th{font-weight:600;color:var(--muted);border-top:0}
+label.chk{flex-direction:row;align-items:center;gap:10px;font-weight:400;min-height:44px}
+label.chk input{width:22px;min-height:22px;height:22px;flex:0 0 22px;padding:0}
+
+body.mode-p .vs,body.mode-s .vp{display:none!important}
+.toggle{display:flex;gap:6px;background:var(--card);border-radius:12px;padding:5px}
+.toggle button{flex:1;border:0;background:transparent;color:var(--muted)}
+.toggle button[aria-pressed="true"]{background:var(--ink);color:var(--card)}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.path{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;counter-reset:none}
+.path li{display:flex;align-items:center;gap:10px;font-size:15px;min-height:44px;border-top:1px solid var(--line)}
+.path li:first-child{border-top:0}
+.path .n{flex:0 0 28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;border:2px solid var(--ink)}
+.path li.ok .n{background:var(--ink);color:var(--card)}
+.path a{flex:1;color:var(--ink);font-weight:600;text-decoration:none}
+.path a:hover{text-decoration:underline}
+.parline{font-size:15px;margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--bg);border:1px solid var(--line)}
+details{border-top:1px solid var(--line);padding-top:6px}
+summary{cursor:pointer;font-weight:600;font-size:15px;min-height:44px;display:flex;align-items:center;color:var(--accent)}
+summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.sug{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13px;font-weight:400;background:var(--warnbg);color:var(--ink);border-radius:8px;padding:8px 10px}
+.sug button{min-height:36px;padding:0 12px;font-size:13px}
+label.ask{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px}
+.row.tot b{font-size:22px}
+@media (max-width:520px){
+  table.rt,table.rt tbody,table.rt tr,table.rt td{display:block;width:100%}
+  table.rt tr.hd{display:none}
+  table.rt tr{border-top:1px solid var(--line);padding:8px 0}
+  table.rt td{border:0;padding:3px 0;display:flex;justify-content:space-between;gap:12px;white-space:normal;text-align:right}
+  table.rt td::before{content:attr(data-l);color:var(--muted);font-weight:600;text-align:left}
+  table.rt td:first-child{font-weight:700}
+}
+</style>
+</head>
+<body class="mode-p">
+<main>
+  <div class="toggle" role="group" aria-label="Who is using this page">
+    <button type="button" id="mP" aria-pressed="true">I'm the parent</button>
+    <button type="button" id="mS" aria-pressed="false">I'm the student</button>
+  </div>
+
+  <section class="hero">
+    <div class="brand">CROSSCHECK</div>
+    <h1><span class="vp">Paying for your child's U.S. university? Part of that tuition can cut your Canadian tax bill this year.</span><span class="vs">Paying for a U.S. university? Part of that tuition can cut your Canadian tax bill.</span></h1>
+    <p><span class="vp">Canadian students at U.S. universities earn a Canadian tuition tax credit. Part of it can move to you, the parent, and cut your tax now. Your child keeps the rest for their first working years. Answer a few questions to see both numbers and the exact steps.</span><span class="vs">Canadian students at U.S. universities earn a Canadian tuition tax credit. It cuts your tax once you work in Canada, and part of it can go to a parent now. Answer a few questions to see the numbers and the exact steps.</span></p>
+  </section>
+
+  <section class="card" aria-labelledby="pt">
+    <h2 id="pt">Three steps</h2>
+    <ol class="path" id="path"></ol>
+  </section>
+
+  <section class="card" aria-labelledby="rg">
+    <h2 id="rg"><span class="vp">First: is your child still a Canadian resident for tax?</span><span class="vs">First: are you still a Canadian resident for tax?</span></h2>
+    <p style="font-size:14px"><span class="vp">The credit only builds in years your child counts as a resident of Canada. A U.S. degree alone does not end that. Cutting ties does.</span><span class="vs">The credit only builds in years you count as a resident of Canada. A U.S. degree alone does not end that. Cutting ties does.</span></p>
+    <div class="grid">
+      <label for="r_home"><span class="vp">Does your child still have a home in Canada to return to? A family home counts.</span><span class="vs">Do you still have a home in Canada to return to? A family home counts.</span>
+        <select id="r_home"><option value="">Choose</option><option value="y">Yes</option><option value="n">No</option></select>
+      </label>
+      <label for="r_fam"><span class="vp">Does your child have a spouse or dependants living in Canada?</span><span class="vs">Do you have a spouse or dependants living in Canada?</span>
+        <select id="r_fam"><option value="">Choose</option><option value="y">Yes</option><option value="n">No</option></select>
+      </label>
+      <label for="r_return"><span class="vp">Does your child plan to return to Canada after school?</span><span class="vs">Do you plan to return to Canada after school?</span>
+        <select id="r_return"><option value="">Choose</option><option value="y">Yes</option><option value="u">Not sure</option><option value="n">No</option></select>
+      </label>
+      <label for="r_perm"><span class="vp">Has your child moved to the U.S. for good, got a green card, or told the CRA they left Canada?</span><span class="vs">Have you moved to the U.S. for good, got a green card, or told the CRA you left Canada?</span>
+        <select id="r_perm"><option value="">Choose</option><option value="n">No</option><option value="y">Yes</option></select>
+      </label>
+    </div>
+    <p class="warn" id="resMsg"></p>
+  </section>
+
+  <section class="card" aria-labelledby="u">
+    <h2 id="u"><span class="vp">Upload your child's tuition statement</span><span class="vs">Upload your tuition statement</span></h2>
+    <label for="file">Statement from the school's billing portal (PDF)
+      <input id="file" type="file" accept="application/pdf,.pdf">
+      <span class="hint">Read on this device only. The file is not sent or stored anywhere else.</span>
+    </label>
+    <p class="fine" id="upStatus">No file yet. You can also type the tuition in below.</p>
+    <div id="found" hidden>
+      <label for="period" class="ask">What period does this statement cover?
+        <select id="period"><option value="">Choose</option><option value="2">One semester (doubled)</option><option value="3">One trimester (tripled)</option><option value="1">The full year</option></select>
+        <span class="hint" id="periodHint"></span>
+      </label>
+      <p style="font-size:14px;font-weight:600;margin-top:12px">Lines we found. Tick only tuition and fees every student must pay. Books, parking, meals, housing and student association fees do not count.</p>
+      <div id="lines" class="lines"></div>
+      <p class="warn" id="upWarn" hidden><strong>Double count:</strong> the "Fees (total of all fee lines)" line already includes the individual fee lines. Tick the total or the individual lines, not both.</p>
+      <p style="font-size:14px;margin-top:10px" id="upSum"></p>
+      <p class="fine" id="upInfo"></p>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="q">
+    <h2 id="q"><span class="vp">Your child's situation</span><span class="vs">Your situation</span></h2>
+    <div class="grid">
+      <label for="prov"><span class="vp">Your child's home province on December 31</span><span class="vs">Your home province on December 31</span>
+        <select id="prov">
+          <option value="">Choose</option>
+          <option value="QC">Quebec</option><option value="ON">Ontario</option><option value="BC">British Columbia</option>
+          <option value="AB">Alberta</option><option value="MB">Manitoba</option><option value="SK">Saskatchewan</option>
+          <option value="NS">Nova Scotia</option><option value="NB">New Brunswick</option><option value="NL">Newfoundland and Labrador</option><option value="PE">Prince Edward Island</option>
+        </select>
+        <span class="sug" id="provSug" hidden><span id="provSugText"></span> <button type="button" id="provOk">Confirm</button></span>
+      </label>
+      <label for="ft">Full-time in a bachelor's degree or higher at a U.S. university?
+        <select id="ft"><option value="y">Yes</option><option value="n">No</option></select>
+        <span class="hint">The school must grant bachelor's degrees or higher. Junior colleges and self-paced correspondence courses do not qualify.</span>
+      </label>
+      <label for="tuition">Tuition and mandatory fees per year (US$)
+        <input id="tuition" type="number" inputmode="numeric" min="0" step="500" value="30000">
+        <span class="hint">Sticker price, before scholarships. Scholarship-paid tuition still counts.</span>
+      </label>
+      <label for="arrive">First calendar year of U.S. study
+        <input id="arrive" type="number" inputmode="numeric" min="2010" max="2030" value="2023">
+      </label>
+      <label for="years">Number of calendar years of study
+        <input id="years" type="number" inputmode="numeric" min="1" max="10" value="4">
+        <span class="hint">Count the year the courses were taken, not the year it was paid.</span>
+      </label>
+      <label for="fx">Exchange rate for years with no published average
+        <input id="fx" type="number" inputmode="decimal" min="0" step="0.0001" value="1.40">
+        <span class="hint">Canadian dollars per US$1. We use the Bank of Canada yearly average for 2023, 2024 and 2025.</span>
+      </label>
+      <label for="usinc">Any U.S. income this year?
+        <select id="usinc"><option value="n">No, $0</option><option value="y">Yes: a job, a taxable scholarship, or money from sponsorships or endorsements (NIL)</option></select>
+      </label>
+      <label for="salary"><span class="vp">Your child's expected first Canadian salary (C$)</span><span class="vs">Your expected first Canadian salary (C$)</span>
+        <input id="salary" type="number" inputmode="numeric" min="0" step="1000" value="60000">
+      </label>
+    </div>
+  </section>
+
+  <section class="card" aria-live="polite" aria-labelledby="r">
+    <h2 id="r">The estimate</h2>
+    <p class="disc">Estimates only, not tax advice. Verify against CRA guidance and your own return.</p>
+    <div>
+      <div class="hint" id="totalLabel"></div>
+      <div class="big" id="total">C$0</div>
+      <p id="plain" style="font-size:15px;margin-top:8px"></p>
+      <p class="parline" id="parLine" hidden></p>
+    </div>
+    <p class="warn" id="gateNote"></p>
+    <div id="shareBox" hidden>
+      <div class="btns"><button type="button" id="shareBtn"></button><span class="fine" id="shareMsg" role="status"></span></div>
+      <p class="fine" id="shareHint"></p>
+    </div>
+    <div id="estBody">
+      <details id="estDetails">
+        <summary>See the details</summary>
+        <div class="row"><span>Federal credit, headline<small>Each year's tuition times that year's federal rate.</small></span><b id="fedHead">C$0</b></div>
+        <div class="row" id="effRow"><span>Federal credit after the Quebec abatement<small>This is what is actually saved. Quebec residents already pay 16.5% less federal tax, so the credit is worth 83.5% of the headline.</small></span><b id="fedEff">C$0</b></div>
+        <div class="row"><span>Provincial credit<small id="provNote"></small></span><b id="provAmt">C$0</b></div>
+        <div class="row" id="headRow"><span>Headline total<small>Before the Quebec abatement. Not what is saved.</small></span><b id="headTotal">C$0</b></div>
+        <div class="row"><span><strong>Actual saving</strong></span><b id="effTotal">C$0</b></div>
+        <h3 style="margin-top:12px">Year by year</h3>
+        <div class="tbl"><table class="rt" id="yearTbl"></table></div>
+        <p class="fine">The federal rate is the rate for the year the courses were taken: 15% for 2024 and earlier, 14.5% for 2025, 14% for 2026 and later.</p>
+      </details>
+      <div>
+        <h3>How this works</h3>
+        <ol class="steps" id="how"></ol>
+      </div>
+      <p class="fine">Footnote: filing a Canadian return can also qualify a Canadian tax resident for the Canada Groceries and Essentials Benefit (the renamed GST/HST credit, at most C$679 a year for a single filer with no children, July 2026 to June 2027). It is income-tested and is not counted here.</p>
+    </div>
+    <div class="warn" id="warn"></div>
+  </section>
+
+  <section class="card" aria-labelledby="s">
+    <h2 id="s">How to claim it, step by step</h2>
+    <div class="stepsbox" id="claimSteps"></div>
+  </section>
+
+  <section class="card" aria-labelledby="e">
+    <h2 id="e">Step 1: the email to the school</h2>
+    <p style="font-size:14px"><span class="vp">Your child sends this to the registrar or student accounts office, because schools only release this form to your child directly. Fill in the blanks and we write the email.</span><span class="vs">Fill in the blanks and we write the email. Send it to the registrar or student accounts office.</span></p>
+    <div class="grid">
+      <label for="emName"><span class="vp">Your child's full name</span><span class="vs">Your full name</span>
+        <input id="emName" type="text" autocomplete="off" placeholder="First Last">
+      </label>
+      <label for="emSchool">School
+        <input id="emSchool" type="text" placeholder="School name">
+      </label>
+      <label for="emId">Student ID (optional)
+        <input id="emId" type="text">
+      </label>
+      <label for="emYears">Calendar years needed
+        <input id="emYears" type="text">
+        <span class="hint">One form per calendar year, January to December.</span>
+      </label>
+    </div>
+    <p style="font-size:14px"><strong>Get the blank form:</strong> <a id="tlLink" href="https://www.canada.ca/en/revenue-agency/services/forms-publications/forms/tl11a.html">Form TL11A on canada.ca</a><br><span class="fine">canada.ca/en/revenue-agency/services/forms-publications/forms/tl11a.html</span></p>
+    <p style="font-size:14px"><span class="vp">Attach the blank form as it is — the school completes Part 1. Leave Part 3 blank unless your child is transferring unused amounts to you; that is the part your child fills in.</span><span class="vs">Attach the blank form as it is — the school completes Part 1. Leave Part 3 blank unless you're transferring unused amounts to a parent; that's the part you fill in yourself.</span></p>
+    <label for="emText">The email
+      <textarea id="emText" rows="18" readonly></textarea>
+    </label>
+    <div class="btns">
+      <button type="button" id="emCopy">Copy email</button>
+      <span class="fine" id="emMsg" role="status"></span>
+    </div>
+  </section>
+
+  <section class="card needres" aria-labelledby="tr">
+    <h2 id="tr">Parent transfer optimizer</h2>
+    <p class="disc">Estimates only, not tax advice. Verify against CRA guidance and your own return.</p>
+    <p style="font-size:14px"><span class="vp">Your child can hand part of one year's tuition to you, and you save tax right away. Whatever is handed over comes off your child's own saved-up amount.</span><span class="vs">You can hand part of one year's tuition to a parent, who saves tax right away. Whatever you hand over comes off your own saved-up amount.</span></p>
+    <div class="grid">
+      <label for="tr_year">Tuition year to transfer
+        <select id="tr_year"></select>
+      </label>
+      <label for="tr_who">Transfer to
+        <select id="tr_who"><option value="parent">Parent or grandparent</option><option value="spouse">Spouse or common-law partner</option><option value="inlaw">Spouse's parent or grandparent</option></select>
+      </label>
+      <label for="tr_used"><span class="vp">Tuition amount your child needs for their own tax that year (C$)</span><span class="vs">Tuition amount you need for your own tax that year (C$)</span>
+        <input id="tr_used" type="number" inputmode="numeric" min="0" step="100" value="0">
+        <span class="hint"><span class="vp">If your child earned little or no Canadian income that year, leave this at $0 and the whole credit can transfer.</span><span class="vs">If you earned little or no Canadian income that year, leave this at $0 and the whole credit can transfer.</span></span>
+      </label>
+    </div>
+    <div id="trOut"></div>
+    <div>
+      <h3>Which year to transfer</h3>
+      <p style="font-size:14px" id="trWhich"></p>
+      <div class="tbl"><table class="rt" id="trTbl"></table></div>
+    </div>
+  </section>
+
+  <section class="card needres" aria-labelledby="my">
+    <h2 id="my">Missed years</h2>
+    <p class="disc">Estimates only, not tax advice. Verify against CRA guidance and your own return.</p>
+    <p style="font-size:14px"><span class="vp">Did your child study in earlier years and never claim the tuition? They can ask the CRA to adjust returns up to 10 calendar years back. The CRA may accept or refuse the request.</span><span class="vs">Studied in earlier years and never claimed the tuition? You can ask the CRA to adjust returns up to 10 calendar years back. The CRA may accept or refuse the request.</span></p>
+    <div id="missRows"></div>
+    <div class="row"><span id="missLbl"></span><b id="missTotal">C$0</b></div>
+    <ol class="steps" id="missSteps"></ol>
+  </section>
+
+  <section class="card" aria-labelledby="tk">
+    <h2 id="tk">TL11A tracker</h2>
+    <p style="font-size:14px">Getting the form signed is the hardest step. Track each year here and we tell you when to follow up.</p>
+    <div id="trackRows"></div>
+    <span class="fine" id="tkMsg" role="status"></span>
+  </section>
+
+  <section class="card" aria-labelledby="v">
+    <h2 id="v">The tax folder</h2>
+    <p style="font-size:14px"><span class="vp">Drop each document here as it arrives. When everything is ticked, your child is ready to do their return.</span><span class="vs">Drop each document here as it arrives. When everything is ticked, you are ready to do your return.</span></p>
+    <p class="big" id="vCount" style="font-size:28px">0 of 0 ready</p>
+    <p id="vMsg" role="status" class="warn" hidden></p>
+    <div id="vault"></div>
+    <div id="preview" hidden>
+      <h3 id="pvName"></h3>
+      <div id="pvBody"></div>
+    </div>
+    <p class="fine" id="vNote"></p>
+  </section>
+
+  <section class="card needres" aria-labelledby="fsh">
+    <h2 id="fsh">The filing sheet</h2>
+    <p class="disc">Estimates only, not tax advice. Verify against CRA guidance and your own return.</p>
+    <p style="font-size:14px">These are the only numbers to type into tax software. One line per calendar year. We fill in what we can.</p>
+    <div id="sheetRows"></div>
+    <div class="row"><span>Total tuition to enter</span><b id="shTotal">C$0</b></div>
+    <div class="tbl"><table class="rt" id="sheetTbl"></table></div>
+    <div>
+      <h3>Where to type them</h3>
+      <ol class="steps" id="sheetWhere"></ol>
+    </div>
+    <p class="warn" id="shWarn" hidden></p>
+    <div class="btns">
+      <button type="button" id="shCopy">Copy filing sheet as a table</button>
+      <span class="fine" id="shMsg" role="status"></span>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="d">
+    <h2 id="d">Deadlines for the 2026 tax year</h2>
+    <ul id="dl"></ul>
+    <p class="fine">U.S. side: Form 8843 is required every year on a student visa, even with no U.S. income. A 1040-NR is required if there was U.S. income. State returns are separate and depend on the state.</p>
+  </section>
+
+  <section class="card" aria-labelledby="kit">
+    <h2 id="kit">The claim kit</h2>
+    <p style="font-size:15px" id="kitLine"></p>
+    <div class="row"><span><strong>Free</strong><small>Calculator and deadline tracker.</small></span><b>C$0</b></div>
+    <div class="row"><span><strong>Claim kit, one-time</strong><small>School letters and form tracker, filing sheet, parent transfer optimizer, missed-years recovery.</small></span><b>$99</b></div>
+    <p class="fine">Test version: every section is unlocked and nothing is charged. At launch the free version keeps only the calculator and deadline tracker; the $99 kit adds the school letters and tracker, the filing sheet, the transfer optimizer and missed-years recovery.</p>
+  </section>
+
+  <p class="fine">Estimates only, not tax advice. Verify against CRA guidance and your own return. Rates used: federal 15% (2024 and earlier), 14.5% (2025), 14% (2026 and later). Provincial rates are 2026 rates applied to every year. Crosscheck organizes and tracks. It does not prepare or file tax returns.</p>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+<script>
+/* ======== AD TRACKING PLACEHOLDERS ========
+   Paste the IDs here at launch. While both are empty, nothing loads, fires or errors.
+   Note: claude.ai artifact pages block these outside scripts, so they only work once
+   this page is hosted on your own domain. */
+var META_PIXEL_ID = '';   // Meta Pixel ID, for example '123456789012345'
+var GOOGLE_ADS_ID = '';   // Google Ads conversion ID, for example 'AW-123456789'
+function initTracking(){
+  if(META_PIXEL_ID){try{!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');window.fbq('init',META_PIXEL_ID);window.fbq('track','PageView')}catch(e){}}
+  if(GOOGLE_ADS_ID){try{var gs=document.createElement('script');gs.async=true;gs.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(GOOGLE_ADS_ID);document.head.appendChild(gs);window.dataLayer=window.dataLayer||[];window.gtag=function(){window.dataLayer.push(arguments)};window.gtag('js',new Date());window.gtag('config',GOOGLE_ADS_ID)}catch(e){}}
+}
+initTracking();
+
+var PAGE_URL='https://claude.ai/artifact/HrrcyuU11ikyNwmJGhdR1f';
+var TL11A_URL='https://www.canada.ca/en/revenue-agency/services/forms-publications/forms/tl11a.html';
+
+/* ---------- tax engine (unchanged) ---------- */
+var CUR=2026, BOC={2023:1.3497,2024:1.3698,2025:1.3978}, QC_ABATE=0.835;
+var PROV={BC:0.056,MB:0.108,QC:0.08,NB:0.094,NS:0.0879,NL:0.087,PE:0.0965,ON:0,SK:0,AB:0};
+var ENDED={ON:'Ontario ended its tuition credit in 2018',SK:'Saskatchewan ended its tuition credit in 2018',AB:'Alberta ended its tuition credit in 2020'};
+var PNAME={QC:'Quebec',ON:'Ontario',BC:'British Columbia',AB:'Alberta',MB:'Manitoba',SK:'Saskatchewan',NS:'Nova Scotia',NB:'New Brunswick',NL:'Newfoundland and Labrador',PE:'Prince Edward Island'};
+function fedRate(y){return y<=2024?0.15:(y===2025?0.145:0.14)}
+function pct(r){return (Math.round(r*10000)/100)+'%'}
+function fedTax(s){
+  var low=fedRate(CUR);
+  var t=low*Math.min(s,58523)+0.205*Math.max(0,Math.min(s,117045)-58523)+0.26*Math.max(0,s-117045);
+  return Math.max(0,t-low*16452);
+}
+function $(id){return document.getElementById(id)}
+function money(n){return 'C$'+Math.round(n).toLocaleString('en-CA')}
+function usd(n){return 'US$'+Math.round(n).toLocaleString('en-CA')}
+function num(id){var v=parseFloat($(id).value);return isFinite(v)&&v>0?v:0}
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+
+var mode='p';
+try{var mm=localStorage.getItem('crosscheck-mode');if(mm==='p'||mm==='s')mode=mm}catch(e){}
+function V(p,s){return mode==='p'?p:s}
+
+var forms={}, docs=[], idb=null, memId=1, emailCopied=false, armed=null, built={}, sheetText='', shareText='', cands=[], provPending=false, stmtInfo=null;
+try{forms=JSON.parse(localStorage.getItem('crosscheck-forms')||'{}')||{}}catch(e){}
+try{emailCopied=localStorage.getItem('crosscheck-emailcopied')==='1'}catch(e){}
+function saveForms(){try{localStorage.setItem('crosscheck-forms',JSON.stringify(forms))}catch(e){}}
+function F(y){return forms[y]||(forms[y]={})}
+function build(id,key,html){if(built[id]!==key){built[id]=key;$(id).innerHTML=html();return true}return false}
+
+function resState(){
+  var h=$('r_home').value,f=$('r_fam').value,r=$('r_return').value,p=$('r_perm').value;
+  if(!h||!f||!r||!p)return 'ask';
+  if(p==='y')return 'non';
+  if(h==='n'&&f==='n'&&r==='n')return 'non';
+  if((h==='y'||f==='y')&&r!=='n')return 'res';
+  return 'unclear';
+}
+function readInputs(){
+  var a=Math.round(num('arrive'))||2023, n=Math.max(1,Math.min(10,Math.round(num('years'))||1));
+  return {prov:$('prov').value,fullTime:$('ft').value==='y',tuition:num('tuition'),arrive:a,years:n,fx:num('fx')||1.4,usInc:$('usinc').value==='y',salary:num('salary'),res:resState()};
+}
+function yearRows(i){
+  var out=[],pr=PROV[i.prov]||0,qc=i.prov==='QC';
+  for(var y=i.arrive;y<i.arrive+i.years;y++){
+    var f=forms[y]||{}, typed=parseFloat(f.amt)>0, amt=typed?parseFloat(f.amt):i.tuition;
+    var own=parseFloat(f.fx)>0, rate=own?parseFloat(f.fx):(BOC[y]||i.fx);
+    var method=own?'Your rate':(BOC[y]?'Bank of Canada '+y+' average':'Your default rate');
+    var cad=i.fullTime?amt*rate:0, fr=fedRate(y), fed=cad*fr;
+    out.push({y:y,amt:amt,typed:typed,rate:rate,method:method,cad:cad,fr:fr,fed:fed,fedEff:fed*(qc?QC_ABATE:1),prov:cad*pr,mo:f.mo||'',claimed:!!f.claimed});
+  }
+  return out;
+}
+function totals(rows){
+  var t={cad:0,fed:0,fedEff:0,prov:0};
+  rows.forEach(function(r){t.cad+=r.cad;t.fed+=r.fed;t.fedEff+=r.fedEff;t.prov+=r.prov});
+  t.head=t.fed+t.prov;t.eff=t.fedEff+t.prov;return t;
+}
+function transferCalc(i,row,used,who){
+  var qc=i.prov==='QC', pr=PROV[i.prov]||0, o={blocked:false,fedAmt:0,fedSave:0,provSave:0,provNote:''};
+  if(!row){return o}
+  if(row.y<CUR){o.blocked=true;return o}
+  o.fedAmt=Math.max(0,Math.min(5000-used,row.cad-used));
+  o.fedSave=o.fedAmt*row.fr*(qc?QC_ABATE:1);
+  if(qc){
+    if(who==='spouse'){o.provSave=0}
+    else{o.provSave=Math.max(0,row.cad-used)*pr}
+  } else if(pr>0){o.provSave=o.fedAmt*pr}
+  return o;
+}
+
+/* ---------- helpers for the page ---------- */
+function gateOk(i){return (i.res==='res'||i.res==='unclear')&&!!i.prov&&!provPending}
+function parentNow(i,rows){
+  var cr=rows.filter(function(r){return r.y===CUR})[0];
+  if(!cr)return 0;
+  var c=transferCalc(i,cr,0,'parent');
+  return c.blocked?0:c.fedSave+c.provSave;
+}
+function childFirst(){var n=$('emName').value.trim();return n?n.split(/\s+/)[0]:'our child'}
+
+function render(){
+  var i=readInputs(), rows=yearRows(i), T=totals(rows), pr=PROV[i.prov]||0, qc=i.prov==='QC';
+  var show=gateOk(i), pNow=parentNow(i,rows);
+  document.body.classList.toggle('mode-p',mode==='p');document.body.classList.toggle('mode-s',mode==='s');
+  $('mP').setAttribute('aria-pressed',String(mode==='p'));$('mS').setAttribute('aria-pressed',String(mode==='s'));
+
+  /* residency gate */
+  var rm={ask:'Answer the four questions above to see the estimate.',
+    res:V('These answers point to your child still being a Canadian resident for tax. The estimate below assumes that holds for every year shown.','These answers point to you still being a Canadian resident for tax. The estimate below assumes that holds for every year shown.'),
+    unclear:V('These answers are mixed. The estimate below only applies to years your child was a Canadian resident for tax. To be sure, your child can ask the CRA for a residency opinion with Form NR73.','These answers are mixed. The estimate below only applies to years you were a Canadian resident for tax. To be sure, ask the CRA for a residency opinion with Form NR73.'),
+    non:V('These answers point to your child not being a Canadian resident for tax. The tuition credit does not build in non-resident years, so the estimate is C$0. Next step: your child asks the CRA for a residency opinion with Form NR73 before claiming anything.','These answers point to you not being a Canadian resident for tax. The tuition credit does not build in non-resident years, so the estimate is C$0. Next step: ask the CRA for a residency opinion with Form NR73 before claiming anything.')};
+  $('resMsg').textContent=rm[i.res];
+  $('provSug').hidden=!provPending;
+  if(provPending)$('provSugText').textContent='Suggested from the address on the statement: '+(PNAME[i.prov]||i.prov)+'. Confirm it or pick another.';
+  document.querySelectorAll('.needres').forEach(function(el){el.hidden=!show});
+  $('estBody').hidden=!show;
+  $('gateNote').hidden=show||i.res==='non';
+  $('gateNote').innerHTML='<strong>'+V('Answer the four residency questions and choose your child\'s home province first.','Answer the four residency questions and choose your home province first.')+'</strong>'+(provPending?' Confirm the suggested province.':'')+' The estimate, the filing sheet and the year-by-year savings stay hidden until then.';
+
+  /* the one number */
+  $('total').textContent=show?money(T.eff):'C$0';
+  $('totalLabel').textContent=show?V('Canadian income tax your child could save once they start working','Canadian income tax you could save once you start working'):(i.res==='non'?'No credit for a non-resident year':'Waiting for your answers');
+  var tax=fedTax(i.salary), yrs=tax>0?T.fed/tax:0, yt=yrs<1?Math.round(yrs*12)+' months':yrs.toFixed(1)+' years';
+  $('plain').textContent=!show?(i.res==='non'?V('Your child gets the NR73 residency opinion first. If the CRA says they are still a resident, come back and answer the questions again.','Get the NR73 residency opinion first. If the CRA says you are still a resident, come back and answer the questions again.'):''):
+    (T.fed>0&&yrs?V('In plain terms: on a '+money(i.salary)+' salary your child would pay little or no federal income tax for about '+yt+'.','In plain terms: on a '+money(i.salary)+' salary you would pay little or no federal income tax for about '+yt+'.'):(i.fullTime?'Enter the tuition above to see the number.':'This credit needs full-time study toward a bachelor\'s degree or higher at a university.'));
+  $('parLine').hidden=!(show&&mode==='p'&&pNow>0);
+  $('parLine').innerHTML='You could save <strong>'+money(pNow)+'</strong> of that off your own tax this year, by having your child transfer part of the '+CUR+' tuition to you. See the transfer optimizer below.';
+
+  /* share */
+  $('shareBox').hidden=!show;
+  $('shareBtn').textContent=V('Copy a summary to share','Send this to your parent');
+  $('shareBtn').className=mode==='s'?'primary':'';
+  $('shareHint').textContent=V('Copies a short summary you can paste into a message or email. Nothing is sent from this page.','Copies a short message you can paste into a text or email to your parent. Nothing is sent from this page.');
+  shareText=mode==='s'
+    ?'I checked my tuition tax credit: I could save '+money(T.eff)+' in Canadian tax over my degree'+(pNow>0?', and you could save '+money(pNow)+' off your tax this year by transferring part of it':'')+'. The kit that walks us through it is $99 once: '+PAGE_URL
+    :'I checked our tuition tax credit: '+childFirst()+' could save '+money(T.eff)+' in Canadian tax over the degree'+(pNow>0?', and I could save '+money(pNow)+' off my tax this year by having part of it transferred to me':'')+'. The kit that walks us through it is $99 once: '+PAGE_URL;
+
+  /* details fold */
+  $('fedHead').textContent=money(T.fed);
+  $('effRow').hidden=!qc;$('headRow').hidden=!qc;
+  $('fedEff').textContent=money(T.fedEff);
+  $('provAmt').textContent=money(T.prov);
+  $('provNote').textContent=pr?(qc?'8% of eligible fees (Quebec Schedule T). Confirm the school is recognized by Revenu Québec.':pct(pr)+' of tuition, the 2026 rate for this province.'):((ENDED[i.prov]||'This province has no tuition credit')+', so new tuition earns C$0 here. Older carried-forward amounts may still exist.');
+  $('headTotal').textContent=money(T.head);
+  $('effTotal').textContent=money(T.eff);
+  var fl='Federal'+(qc?' (actual)':'');
+  $('yearTbl').innerHTML='<tr class="hd"><th>Year</th><th>Tuition</th><th>Federal rate</th><th>'+fl+'</th><th>Provincial</th></tr>'+rows.map(function(r){return '<tr><td data-l="Year">'+r.y+(r.typed?' (form)':'')+'</td><td data-l="Tuition">'+money(r.cad)+'</td><td data-l="Federal rate">'+pct(r.fr)+(qc?' ('+pct(r.fr*QC_ABATE)+' actual)':'')+'</td><td data-l="'+fl+'">'+money(r.fedEff)+'</td><td data-l="Provincial">'+money(r.prov)+'</td></tr>'}).join('');
+  $('how').innerHTML='<li>The school charges about '+usd(i.tuition)+' a year. Over '+i.years+' year'+(i.years===1?'':'s')+' that is about '+money(T.cad)+'.</li>'
+    +'<li>Canada counts all of it as tuition, even the part scholarships paid, and turns it into a tax credit at the federal rate for each year'+(pr?', plus '+pct(pr)+' from the province':'')+'.</li>'
+    +V('<li>Nobody gets a cheque. The credit waits on your child\'s tax file, as long as they file a Canadian return every year, and comes off the income tax they owe once they work in Canada. Part of each year\'s amount can move to you instead.</li>','<li>Nobody gets a cheque. The credit waits on your tax file, as long as you file a Canadian return every year, and comes off the income tax you owe once you work in Canada.</li>');
+  $('warn').innerHTML=V('<strong>U.S. side:</strong> on an F-1 or J-1 student visa, your child is exempt from the U.S. day-count test for 5 calendar years. '+(i.arrive+4)+' is the last one. From '+(i.arrive+5)+' the substantial presence test applies, and the Canada-U.S. treaty tie-breaker (Form 8833) may still keep them a U.S. nonresident.','<strong>U.S. side:</strong> on an F-1 or J-1 student visa, you are exempt from the U.S. day-count test for 5 calendar years. '+(i.arrive+4)+' is the last one. From '+(i.arrive+5)+' the substantial presence test applies, and the Canada-U.S. treaty tie-breaker (Form 8833) may still keep you a U.S. nonresident.');
+
+  /* transfer optimizer */
+  build('tr_year',rows.map(function(r){return r.y}).join(','),function(){
+    var def=rows.some(function(r){return r.y===CUR})?CUR:rows[rows.length-1].y;
+    return rows.map(function(r){return '<option value="'+r.y+'"'+(r.y===def?' selected':'')+'>'+r.y+'</option>'}).join('');
+  });
+  var ty=parseInt($('tr_year').value,10), trow=rows.filter(function(r){return r.y===ty})[0], used=num('tr_used'), who=$('tr_who').value;
+  var tc=transferCalc(i,trow,used,who), when=ty===CUR?'this year':'on the '+ty+' return';
+  if(tc.blocked){
+    $('trOut').innerHTML='<p class="warn"><strong>Blocked.</strong> '+ty+' tuition that was not transferred on the '+ty+' return is now a carried-forward amount. Carried-forward amounts can never be transferred. '+V('Only your child can use them.','Only you can use them.')+'</p>';
+  } else {
+    var whoLbl=who==='parent'?V('Total you could save','Total your parent could save'):(who==='spouse'?V('Total your child\'s spouse could save','Total your spouse could save'):V('Total your child\'s spouse\'s parent could save','Total your spouse\'s parent could save'));
+    var fedSub=(qc?'Capped at $5,000 of tuition, current year only, then 83.5% after the Quebec abatement.':'Capped at $5,000 of tuition, current year only.')+(used>0?' '+V('Your child uses ','You use ')+money(used)+' first, so '+money(tc.fedAmt)+' of tuition transfers.':'');
+    var provSub;
+    if(qc)provSub=who==='spouse'?'Quebec does not allow a tuition transfer to a spouse. Choose a parent or grandparent.':'Quebec has no $5,000 cap, so the full year\'s provincial credit can transfer'+(used>0?', less the part '+V('your child uses','you use'):'')+'. It only helps if '+(who==='parent'?V('you owe','your parent owes'):'they owe')+' that much Quebec tax.';
+    else if(pr>0)provSub='Estimated on the same amount as the federal transfer. Provincial limits can differ.';
+    else provSub=(ENDED[i.prov]||'This province has no tuition credit')+', so there is nothing provincial to transfer.';
+    $('trOut').innerHTML='<div class="row tot"><span><strong>'+whoLbl+' '+when+'</strong></span><b>'+money(tc.fedSave+tc.provSave)+'</b></div>'
+      +'<div class="row"><span>Federal<small>'+fedSub+'</small></span><b>'+money(tc.fedSave)+'</b></div>'
+      +'<div class="row"><span>Provincial'+(i.prov?' ('+PNAME[i.prov]+')':'')+'<small>'+provSub+'</small></span><b>'+money(tc.provSave)+'</b></div>';
+  }
+  $('trWhich').textContent=V('A transfer is made on that year\'s own return. Once a year\'s tuition carries forward it is locked to your child. So decide each year: transfer when your child owes little or no tax and you owe tax.','A transfer is made on that year\'s own return. Once a year\'s tuition carries forward it is locked to you. So decide each year: transfer when you owe little or no tax and your parent owes tax.');
+  var ml=V('Most you could save','Most your parent could save');
+  $('trTbl').innerHTML='<tr class="hd"><th>Year</th><th>'+ml+'</th><th>Status</th></tr>'+rows.map(function(r){
+    var c=transferCalc(i,r,0,'parent');
+    return '<tr><td data-l="Year">'+r.y+'</td><td data-l="'+ml+'">'+(c.blocked?'C$0':money(c.fedSave+c.provSave))+'</td><td data-l="Status">'+(c.blocked?'Blocked, carried forward':(r.y===CUR?'Decide on this year\'s return':'Decide on the '+r.y+' return'))+'</td></tr>';
+  }).join('');
+
+  /* missed years */
+  var past=rows.filter(function(r){return r.y<CUR});
+  build('missRows',past.map(function(r){return r.y}).join(','),function(){
+    return past.length?past.map(function(r){return '<div class="slot"><label class="chk" for="ms-'+r.y+'"><input type="checkbox" id="ms-'+r.y+'" data-y="'+r.y+'"'+(r.claimed?' checked':'')+'><span>Tuition for '+r.y+' was already claimed on a Canadian return</span></label><div class="fine" id="ms-out-'+r.y+'"></div></div>'}).join(''):'<p class="fine">No past years in the list. Set the first year of study earlier to check older years.</p>';
+  });
+  var missT=0;
+  past.forEach(function(r){
+    var val=r.fedEff+r.prov, last=r.y+10, o=$('ms-out-'+r.y);
+    if(r.claimed){o.textContent='Nothing to recover for '+r.y+'.'}
+    else if(last<CUR){o.textContent=r.y+' is outside the 10-year window. The CRA will not adjust it.'}
+    else{missT+=val;o.textContent='About '+money(val)+' of credit unclaimed. Ask the CRA by December 31, '+last+'.'}
+  });
+  $('missTotal').textContent=money(missT);
+  $('missLbl').textContent=V('Unclaimed credit your child could still ask for','Unclaimed credit you could still ask for');
+  $('missSteps').innerHTML=['Get a completed, signed TL11A from the school for each missed year.',
+    V('If your child filed a return for that year: they ask for a change through CRA My Account ("Change my return"), ReFILE in tax software, or Form T1-ADJ.','If you filed a return for that year: ask for a change through CRA My Account ("Change my return"), ReFILE in tax software, or Form T1-ADJ.')+(qc?' Ask Revenu Québec to adjust the Quebec return too.':''),
+    V('If your child did not file that year: they file it late, with the tuition on it.','If you did not file that year: file it late, with the tuition on it.'),
+    V('The credit only counts for years your child was a Canadian resident for tax.','The credit only counts for years you were a Canadian resident for tax.'),
+    'The CRA decides. It may accept or refuse a late request, and it can ask to see the form.'].map(function(t){return '<li>'+t+'</li>'}).join('');
+
+  /* claim steps */
+  var st=[
+    ['Today, 5 minutes',V('Your child sends the email below to the school','Send the email below to the school'),'It asks the school to fill in and sign one Canadian tax form (TL11A) for each calendar year. The school fills in its part.'],
+    ['Every 10 days until it arrives',V('Your child follows up','Follow up'),'Use the tracker below. It says when to nudge and writes the follow-up.'],
+    ['When the school replies','Save the signed forms in the tax folder','We check each form for blanks. Keep the forms. Do not send them with the return.'],
+    ['Before doing the return','Convert to Canadian dollars','Use the Bank of Canada yearly average for the year, or the rate on each payment date. Pick one method and stick to it. The filing sheet does this.'],
+    ['February to April',V('Type the numbers into your child\'s tax return','Type the numbers into your tax return'),'Use the filing sheet below. Claim each year\'s tuition in the year the courses were taken, not the year it was paid.'+(qc?' For the Quebec return, enter the same fees on Schedule T.':'')],
+    ['By April 30',V('Your child files a Canadian return every year, even with $0 income','File a Canadian return every year, even with $0 income'),'Filing every year is what keeps the unused credit on file.']
+  ];
+  if(qc)st.push(['Quebec only','Confirm the school with Revenu Québec','A federal TL11A alone does not prove the Quebec credit. Check that Revenu Québec recognizes the school and keep the receipts. No Quebec credit for a year '+V('your child','you')+' did not live in Canada at all.']);
+  st.push(['A few weeks later','Check it worked',V('Your child\'s notice of assessment shows a line called unused federal tuition amount. That is the saved-up balance.','Your notice of assessment shows a line called unused federal tuition amount. That is the saved-up balance.')]);
+  st.push([V('Your child\'s first year with a Canadian salary','Your first year with a Canadian salary'),'Nothing special to do','Tax software pulls in the balance. Carried-forward amounts are used before the current year\'s.']);
+  var keep={};
+  document.querySelectorAll('#claimSteps input').forEach(function(c){keep[c.id]=c.checked});
+  var hasForm=docs.some(function(x){return x.slot.indexOf('tl11a')===0});
+  $('claimSteps').innerHTML=st.map(function(x,k){return '<label for="cs'+k+'"><input type="checkbox" id="cs'+k+'"'+((keep['cs'+k]||(k===0&&emailCopied)||(k===2&&hasForm))?' checked':'')+'><span class="t"><span class="when">'+(k+1)+'. '+x[0]+'</span><b>'+x[1]+'</b>'+x[2]+'</span></label>'}).join('');
+
+  /* email */
+  if(!$('emYears').dataset.touched){
+    $('emYears').value=rows.filter(function(r){return r.y<CUR&&(forms[r.y]||{}).st!=='done'}).map(function(r){return r.y}).join(', ');
+  }
+  writeEmail();
+  renderTracker(rows);
+  renderVault(i,rows);
+  renderSheet(i,rows,T);
+  renderPath(i);
+
+  /* deadlines */
+  var d=[];
+  d.push(['Jan 2027','Ask the school to sign the TL11A for 2026. They can only complete it after the year ends.']);
+  if(i.usInc){
+    d.push(['Apr 15, 2027','U.S. federal return (1040-NR) with Form 8843 attached.']);
+    d.push(['Apr 15, 2027','State return, if the state taxes the income. Rules differ by state.']);
+  } else {
+    d.push(['Jun 15, 2027','U.S. Form 8843 on its own. Required every student-visa year, even at $0.']);
+  }
+  d.push(['Apr 30, 2027','Canadian return (T1'+(qc?' plus Quebec TP-1':'')+') with the 2026 tuition on it.']);
+  $('dl').innerHTML=d.map(function(x){return '<li><span class="d">'+x[0]+'</span><span>'+x[1]+'</span></li>'}).join('');
+
+  /* kit */
+  $('kitLine').innerHTML=mode==='p'
+    ?'<strong>$99 once'+(show&&pNow>0?', save up to '+money(pNow)+' this year.':'.')+'</strong> The kit walks your family through every step, and your child does the paperwork.'
+    :'The kit walks your family through the claim, step by step. It is $99 once, usually paid by the parent, who gets the transfer saving.';
+}
+
+/* ---------- 3-step path ---------- */
+function renderPath(i){
+  var s1=i.res!=='ask';
+  var s2=docs.some(function(x){return x.slot==='statement'})||cands.length>0;
+  var s3=emailCopied||Object.keys(forms).some(function(y){return ['req','rcv','fix','done'].indexOf((forms[y]||{}).st)>=0});
+  var steps=[[s1,'Answer the residency questions','#rg'],[s2,V('Upload your child\'s tuition statement','Upload your tuition statement'),'#u'],[s3,V('Your child emails the school','Email the school'),'#e']];
+  $('path').innerHTML=steps.map(function(s,k){return '<li class="'+(s[0]?'ok':'')+'"><span class="n" aria-hidden="true">'+(s[0]?'✓':(k+1))+'</span><a href="'+s[2]+'">'+s[1]+'</a><span class="pill '+(s[0]?'done':'')+'">'+(s[0]?'Done':'To do')+'</span></li>'}).join('');
+}
+
+/* ---------- email ---------- */
+function writeEmail(){
+  var n=$('emName').value.trim()||'[STUDENT NAME]', sc=$('emSchool').value.trim()||'[SCHOOL]', id=$('emId').value.trim(), ys=$('emYears').value.trim()||'[YEARS]';
+  $('emText').value=
+'Subject: Request for signed CRA Form TL11A (Canadian tuition tax certificate) - '+n+'\n\n'+
+'Hello,\n\n'+
+'I am a Canadian student at '+sc+(id?' (student ID '+id+')':'')+'. To claim my tuition on my Canadian tax return, the Canada Revenue Agency needs the school to complete and sign Form TL11A, "Tuition and Enrolment Certificate - University Outside Canada."\n\n'+
+'Could your office please complete one form for each of these calendar years: '+ys+'?\n\n'+
+'For each year, the form asks the school to confirm:\n'+
+'- the tuition and mandatory fees for courses taken in that calendar year (January to December, not the academic year), before scholarships\n'+
+'- the session dates within that calendar year and the months I was enrolled full-time\n'+
+'- the name, title and signature of an authorized officer\n\n'+
+'Please leave out books, parking, meals, housing and student association fees.\n\n'+
+'I have left Part 3 blank — that is the transfer section, which I complete myself only if I transfer unused amounts to a parent.\n\n'+
+'I have attached the form. It is the CRA\'s Form TL11A, from canada.ca: '+TL11A_URL+'\n\n'+
+'A signed PDF sent back to this email address is all I need.\n\n'+
+'Thank you for your help,\n'+n;
+}
+function followUp(y){
+  var f=forms[y]||{}, n=$('emName').value.trim()||'[STUDENT NAME]';
+  return 'Subject: Following up: signed CRA Form TL11A for '+y+' - '+n+'\n\nHello'+(f.who?' '+f.who:'')+',\n\nI am following up on my request'+(f.rd?' of '+f.rd:'')+' for a completed and signed CRA Form TL11A for calendar year '+y+'. I need it to file my Canadian tax return.\n\nCould you let me know when it will be ready, or who the right person to ask is? I have attached the form again.\n\nThank you,\n'+n;
+}
+function copyText(t,msgEl,okMsg){
+  function ok(){msgEl.textContent=okMsg}
+  function no(){msgEl.textContent='Copy did not work here. Select the text and copy it by hand.'}
+  try{navigator.clipboard.writeText(t).then(ok,no)}catch(e){no()}
+}
+
+/* ---------- TL11A tracker ---------- */
+function renderTracker(rows){
+  var rs=rows.filter(function(r){return r.y<=CUR});
+  build('trackRows',rs.map(function(r){return r.y+':'+((forms[r.y]||{}).st||'')}).join(','),function(){
+    return rs.map(function(r){
+      var f=forms[r.y]||{}, y=r.y;
+      function op(v,t){return '<option value="'+v+'"'+((f.st||'')===v?' selected':'')+'>'+t+'</option>'}
+      return '<div class="slot"><div class="head"><span>'+y+'</span><span class="pill" id="tk-pill-'+y+'"></span></div><div class="sheetgrid">'
+        +'<label for="tk-st-'+y+'">Status<select id="tk-st-'+y+'" data-y="'+y+'" data-k="st">'+op('','Not requested')+op('req','Requested')+op('rcv','Received')+op('fix','Received, needs fixing')+op('done','Received and complete')+'</select></label>'
+        +'<label for="tk-rd-'+y+'">Date requested<input type="date" id="tk-rd-'+y+'" data-y="'+y+'" data-k="rd" value="'+esc(f.rd||'')+'"></label>'
+        +'<label for="tk-who-'+y+'">Who was emailed<input type="text" id="tk-who-'+y+'" data-y="'+y+'" data-k="who" value="'+esc(f.who||'')+'"></label>'
+        +'</div><div class="fine" id="tk-out-'+y+'"></div><div class="btns"><button type="button" data-fu="'+y+'">Copy follow-up email</button></div></div>';
+    }).join('');
+  });
+  var today=new Date();
+  rs.forEach(function(r){
+    var f=forms[r.y]||{}, y=r.y, pill=$('tk-pill-'+y), out=$('tk-out-'+y), st=f.st||'';
+    var label={'':'Not requested',req:'Waiting on school',rcv:'Received',fix:'Needs fixing',done:'Complete'}[st]||'Not requested';
+    pill.textContent=label;pill.className='pill '+(st==='done'?'done':'miss');
+    var msg='';
+    if(y===CUR&&st!=='done'&&st!=='rcv')msg='The school can only complete the '+y+' form after December 31, '+y+'. ';
+    if(st==='req'){
+      if(f.rd){var nd=new Date(f.rd+'T00:00:00');nd.setDate(nd.getDate()+10);
+        msg+=(nd<=today?'Nudge due now. ':'Next nudge: '+nd.toLocaleDateString('en-CA',{year:'numeric',month:'short',day:'numeric'})+'. ')+V('Your child copies the follow-up below and sends it','Copy the follow-up below and send it')+(f.who?' to '+f.who:'')+'.'}
+      else msg+='Add the date the request was sent and we will say when to follow up.';
+    } else if(st==='rcv'){msg='Received. If we could not read it, type the tuition and months from the form into the '+y+' line of the filing sheet.'}
+    else if(st==='fix'){msg+=V('Your child sends it back to the school with the list of blanks from the tax folder.','Send it back to the school with the list of blanks from the tax folder.')}
+    else if(st===''){msg+=(y<CUR?V('Your child sends the request email above, then you set this to Requested.','Send the request email above, then set this to Requested.'):'')}
+    else{msg='Nothing more to do for '+y+'.'}
+    out.textContent=msg;
+  });
+}
+
+/* ---------- tax folder ---------- */
+function openDb(){return new Promise(function(res){try{var r=indexedDB.open('crosscheck',1);r.onupgradeneeded=function(){r.result.createObjectStore('docs',{keyPath:'id',autoIncrement:true})};r.onsuccess=function(){res(r.result)};r.onerror=function(){res(null)};r.onblocked=function(){res(null)}}catch(e){res(null)}})}
+function loadDocs(){return new Promise(function(res){if(!idb)return res();try{var q=idb.transaction('docs').objectStore('docs').getAll();q.onsuccess=function(){docs=q.result||[];res()};q.onerror=function(){res()}}catch(e){res()}})}
+function addDoc(slot,f){
+  var rec={slot:slot,name:f.name,type:f.type||'',blob:f,added:Date.now()};
+  return new Promise(function(res){
+    function mem(){rec.id='m'+(memId++);docs.push(rec);res()}
+    if(!idb)return mem();
+    try{var q=idb.transaction('docs','readwrite').objectStore('docs').add(rec);q.onsuccess=function(){rec.id=q.result;docs.push(rec);res()};q.onerror=mem}catch(e){mem()}
+  });
+}
+function delDoc(id){
+  var gone=docs.filter(function(x){return String(x.id)===String(id)})[0];
+  docs=docs.filter(function(x){return String(x.id)!==String(id)});
+  var gy=gone&&/^tl11a-(20\d\d)$/.exec(gone.slot);
+  if(gy&&forms[gy[1]]&&!docs.some(function(x){return x.slot===gone.slot})){delete forms[gy[1]].issues;if(['rcv','fix','done'].indexOf(forms[gy[1]].st)>=0)forms[gy[1]].st='req';saveForms()}
+  if(idb&&!/^m/.test(String(id))){try{idb.transaction('docs','readwrite').objectStore('docs').delete(Number(id))}catch(e){}}
+}
+function slotsFor(i,rows){
+  var out=[{id:'statement',label:'Tuition statement from the school portal',need:true}];
+  rows.forEach(function(r){if(r.y<=CUR)out.push({id:'tl11a-'+r.y,label:'Signed TL11A form for '+r.y+(r.y===CUR?' (available after December 31)':''),need:r.y<CUR})});
+  if(i.usInc)out.push({id:'us',label:'U.S. income slips (W-2 or 1042-S)',need:true});
+  out.push({id:'t4',label:V('Canadian income slips (T4), if your child worked in Canada','Canadian income slips (T4), if you worked in Canada'),need:false});
+  out.push({id:'noa',label:'Last year\'s Canadian notice of assessment',need:false});
+  return out;
+}
+function renderVault(i,rows){
+  var sl=slotsFor(i,rows), need=0, have=0;
+  $('vault').innerHTML=sl.map(function(s){
+    var fs=docs.filter(function(x){return x.slot===s.id}), ty=/^tl11a-(20\d\d)$/.exec(s.id), iss=(ty&&fs.length&&forms[ty[1]]&&forms[ty[1]].issues)||[], done=fs.length>0&&!iss.length, fix=fs.length>0&&iss.length>0;
+    if(s.need){need++;if(done)have++}
+    return '<div class="slot"><div class="head"><span>'+esc(s.label)+'</span><span class="pill '+(done?'done':((s.need||fix)?'miss':''))+'">'+(done?'Done':(fix?'Needs fixing':(s.need?'Missing':'Optional')))+'</span></div>'
+      +(fix?'<div class="fine">'+iss.map(esc).join(' ')+'</div>':'')
+      +fs.map(function(f){return '<div class="frow"><span class="nm">'+esc(f.name)+'</span><button type="button" data-view="'+f.id+'">View</button><button type="button" data-del="'+f.id+'">'+(String(armed)===String(f.id)?'Tap again to remove':'Remove')+'</button></div>'}).join('')
+      +'<label class="add" for="up-'+s.id+'">Add file<input type="file" id="up-'+s.id+'" data-slot="'+s.id+'" accept="application/pdf,image/*"></label></div>';
+  }).join('');
+  $('vCount').textContent=have+' of '+need+' ready';
+  $('vNote').textContent=idb?'Files are saved in this browser on this device only. Nothing is uploaded. Clearing browser data removes them, so keep the originals.':'This view cannot save files. They stay only until the page is closed, so keep the originals.';
+}
+function vmsg(t){var e=$('vMsg');e.textContent=t;e.hidden=false}
+function gateHint(){return gateOk(readInputs())?'':' The filing sheet appears once the residency questions and province are answered.'}
+function yearSaving(y){
+  var i=readInputs(), r=yearRows(i).filter(function(x){return String(x.y)===String(y)})[0];
+  if(!r)return 'That year is outside the study years entered above. Change the first year or the number of years to include '+y+'.';
+  if(i.res==='non')return 'The residency answers point to non-residence, so we show no credit for it.';
+  if(!gateOk(i))return 'To see what it is worth, answer the four residency questions and choose the home province. The estimate and filing sheet stay hidden until then.';
+  return 'For '+y+' that is '+money(r.cad)+' of tuition, worth about '+money(r.fedEff+r.prov)+' in tax saved ('+money(r.fedEff)+' federal'+(r.prov?' plus '+money(r.prov)+' provincial':'')+').';
+}
+function readForm(slot,f){
+  var m=/^tl11a-(20\d\d)$/.exec(slot);
+  if(!m)return;
+  var y=m[1], manual='Saved '+f.name+'. We could not read the numbers off it, which is normal for a scan or photo. Type the tuition and months from the form into the '+y+' line of the filing sheet below.';
+  if(!window.pdfjsLib||!(/pdf/.test(f.type||'')||/\.pdf$/i.test(f.name))){vmsg(manual+gateHint());return}
+  f.arrayBuffer().then(function(b){return pdfjsLib.getDocument({data:b}).promise}).then(function(pdf){
+    return pdf.getPage(1).then(function(pg){return Promise.all([pg.getAnnotations(),pg.getTextContent()])});
+  }).then(function(r){
+    var an=r[0]||[], text=r[1].items.map(function(x){return x.str}).join(' ');
+    function vals(part){return an.filter(function(a){return a.fieldName&&a.fieldName.indexOf(part)>=0}).map(function(a){return String(a.fieldValue||'').trim()})}
+    function n(v){var x=parseFloat(String(v||'').replace(/[^0-9.]/g,''));return isFinite(x)?x:0}
+    function sum(arr){return arr.reduce(function(t,v){return t+n(v)},0)}
+    var fo=F(y);
+    if(vals('Part1_sub').length){
+      var issues=[], amt=n(vals('List2Item2[0].Amount')[0]);
+      var mo=n(vals('C_Total')[0])||sum(vals('Cell6')), moPT=n(vals('B_Total')[0])||sum(vals('Cell5'));
+      var yr=vals('Year_fld')[0]||'', formYear=yr?'20'+yr.slice(-2):'';
+      if(!amt)issues.push('The tuition amount is blank.');
+      if(!mo&&!moPT)issues.push('The number of months is blank.');
+      if(!vals('AuthorisedName')[0])issues.push('The authorized officer\'s name and title are blank.');
+      if(formYear&&formYear!==y)issues.push('The form is for '+formYear+' but it is in the '+y+' slot.');
+      var other=(vals('DateYYYYMM_BordersAll').join(' ').match(/\b20\d\d\b/g)||[]).filter(function(v){return v!==(formYear||y)});
+      if(other.length)issues.push('The session dates include '+other.filter(function(v,k,a){return a.indexOf(v)===k}).join(' and ')+'. One form should only cover January to December of '+(formYear||y)+'.');
+      fo.issues=issues;fo.st=issues.length?'fix':'done';
+      if(amt&&(!(parseFloat(fo.amt)>0)||fo.read)){fo.amt=String(amt);fo.read=amt.toLocaleString('en-CA')}
+      if(mo&&(!fo.mo||fo.read||fo.moSug)){fo.mo=String(mo);delete fo.moSug}
+      saveForms();built={};render();
+      if(issues.length){vmsg('Saved '+f.name+', but this form is not complete yet. '+issues.join(' ')+' Also check that an officer signed it by hand. Send it back to the school to finish before relying on it.')}
+      else{vmsg('Saved '+f.name+'. We read tuition of '+amt.toLocaleString('en-CA')+' and '+(mo||moPT)+' months. '+yearSaving(y)+' Check that an officer signed it by hand.')}
+      return;
+    }
+    var best=pickAmount(text);
+    if(!best){vmsg(manual+gateHint());return}
+    if(!(parseFloat(fo.amt)>0)){fo.amt=String(best);fo.read=best.toLocaleString('en-CA');saveForms();built={};render();vmsg('Saved '+f.name+' and read a tuition amount of '+fo.read+'. '+yearSaving(y))}
+    else{vmsg('Saved '+f.name+'. The '+y+' line already has an amount, so we left it alone.')}
+  }).catch(function(){vmsg(manual+gateHint())});
+}
+function pickAmount(text){
+  var re=/(\d{1,3}(?:,\d{3})+(?:\.\d{2})?|\d{4,6}\.\d{2})/g, m, best=0;
+  while((m=re.exec(text))){var v=parseFloat(m[1].replace(/,/g,''));if(v>=500&&v<=250000&&v>best)best=v}
+  return best;
+}
+
+/* ---------- filing sheet ---------- */
+function renderSheet(i,rows,T){
+  var qc=i.prov==='QC';
+  build('sheetRows',rows.map(function(r){return r.y}).join(','),function(){
+    return rows.map(function(r){
+      var y=r.y,f=forms[y]||{};
+      return '<div class="slot"><div class="head"><span>'+y+' <span class="fine" id="sh-where-'+y+'"></span></span><span class="pill" id="sh-pill-'+y+'"></span></div>'
+        +'<div class="sheetgrid">'
+        +'<label for="sh-amt-'+y+'">Tuition on the form (US$)<input type="number" inputmode="decimal" min="0" id="sh-amt-'+y+'" data-y="'+y+'" data-k="amt" value="'+esc(f.amt||'')+'"></label>'
+        +'<label for="sh-mo-'+y+'">Months full-time<input type="number" inputmode="numeric" min="0" max="12" id="sh-mo-'+y+'" data-y="'+y+'" data-k="mo" value="'+esc(f.mo||'')+'"></label>'
+        +'<label for="sh-fx-'+y+'">Your own exchange rate<input type="number" inputmode="decimal" min="0" step="0.0001" id="sh-fx-'+y+'" data-y="'+y+'" data-k="fx" value="'+esc(f.fx||'')+'"><span class="hint">Only change this if you used a different rate than the Bank of Canada average shown.</span></label>'
+        +'</div><div class="shout" id="sh-out-'+y+'"></div><div class="fine" id="sh-note-'+y+'"></div></div>';
+    }).join('');
+  });
+  var anyEst=rows.some(function(r){return !r.typed});
+  var lines=['Year\tTuition (US$)\tExchange rate\tRate method\tTuition to enter (C$)\tFederal rate\tMonths full-time\tSource\tGoes on'];
+  rows.forEach(function(r){
+    var y=r.y,f=forms[y]||{},goes=(y===CUR)?'this year\'s return':(y<CUR?'the '+y+' return (change request if already filed)':'the '+y+' return');
+    if($('sh-mo-'+y)&&document.activeElement!==$('sh-mo-'+y)&&$('sh-mo-'+y).value!==(f.mo||''))$('sh-mo-'+y).value=f.mo||'';
+    if($('sh-amt-'+y)&&document.activeElement!==$('sh-amt-'+y)&&$('sh-amt-'+y).value!==(f.amt||''))$('sh-amt-'+y).value=f.amt||'';
+    $('sh-pill-'+y).textContent=r.typed?'From the form':'Estimate';
+    $('sh-pill-'+y).className='pill '+(r.typed?'done':'miss');
+    $('sh-where-'+y).textContent='goes on '+goes;
+    $('sh-fx-'+y).placeholder=BOC[y]||i.fx;
+    $('sh-out-'+y).innerHTML='Type this as the tuition: <b>'+money(r.cad)+'</b><br>Worth about '+money(r.fedEff+r.prov)+' in tax saved for '+y+'.';
+    $('sh-note-'+y).textContent='Rate '+r.rate+' ('+r.method+'). Federal credit rate for '+y+': '+pct(r.fr)+'. '+(r.typed?'':'Using the estimate until the signed form arrives. ')+(f.read?'We read '+f.read+' from the form. Check it against the form. ':'')+(f.moSug?'Months suggested from the '+f.moSug+' statement. That covers that term only, so add the months from the year\'s other term. ':'');
+    lines.push([y,Math.round(r.amt),r.rate,r.method,Math.round(r.cad),pct(r.fr),r.mo||'from form',r.typed?'signed form':'ESTIMATE',goes].join('\t'));
+  });
+  $('shTotal').textContent=money(T.cad);
+  $('sheetTbl').innerHTML='<tr class="hd"><th>Year</th><th>US$</th><th>Rate</th><th>C$ to enter</th><th>Federal rate</th><th>Months</th></tr>'+rows.map(function(r){return '<tr><td data-l="Year">'+r.y+(r.typed?'':' (estimate)')+'</td><td data-l="US$">'+Math.round(r.amt).toLocaleString('en-CA')+'</td><td data-l="Rate">'+r.rate+'</td><td data-l="C$ to enter">'+money(r.cad)+'</td><td data-l="Federal rate">'+pct(r.fr)+'</td><td data-l="Months">'+(r.mo||'from form')+'</td></tr>'}).join('');
+  var where=[
+    'Open the student or tuition section of the tax software and choose TL11A (university outside Canada).',
+    'Type the Canadian-dollar tuition and the months for the year being filed. Each earlier year goes on that year\'s own return.',
+    'Unused tuition from earlier years: use the amount on the latest notice of assessment. Most software imports it. It is used before this year\'s tuition.',
+    'Amount to transfer: type 0 unless the transfer optimizer above was used to decide on a transfer.',
+    'Check: the tuition should now show on federal Schedule 11, which feeds line 32300'+(qc?', and on Quebec Schedule T, which feeds line 398.':'.'),
+    'Currency method: Bank of Canada yearly average where shown, or the rate on each payment date. Use one method for every payment in a year.'
+  ];
+  $('sheetWhere').innerHTML=where.map(function(w){return '<li>'+w+'</li>'}).join('');
+  $('shWarn').hidden=!anyEst;
+  $('shWarn').innerHTML='<strong>Some years are still estimates.</strong> Until a signed TL11A is entered for every year, the copied sheet is marked ESTIMATE at the top and on each estimated row.';
+  sheetText=(anyEst?'ESTIMATE — confirm against the signed TL11A\n\n':'')+lines.join('\n')+'\nTotal\t\t\t\t'+Math.round(T.cad)+'\n\nEstimates only, not tax advice. Confirm against the signed TL11A forms.';
+}
+
+/* ---------- statement reader (parser unchanged) ---------- */
+/*PARSER-START*/
+function linesFromItems(items){
+  var rows=[];
+  items.forEach(function(it){
+    if(!it.str||!it.str.trim())return;
+    var y=Math.round(it.transform[5]),row=null;
+    for(var k=0;k<rows.length;k++){if(Math.abs(rows[k].y-y)<=2){row=rows[k];break}}
+    if(!row){row={y:y,parts:[]};rows.push(row)}
+    row.parts.push({x:it.transform[4],s:it.str});
+  });
+  rows.sort(function(a,b){return b.y-a.y});
+  return rows.map(function(r){return r.parts.sort(function(a,b){return a.x-b.x}).map(function(p){return p.s}).join(' ').replace(/\s+/g,' ').trim()});
+}
+function findCandidates(lines){
+  var out=[],seen={};
+  lines.forEach(function(l){
+    var m=l.match(/^(.*?)\s*\$\s?([\d,]+\.\d{2})\s*$/);
+    if(!m)return;
+    var label=m[1].replace(/^[-+=\s]+/,'').trim(),amt=parseFloat(m[2].replace(/,/g,''));
+    if(!label||!(amt>0))return;
+    if(!/tuition|fee|book|parking|insur|ins\.|room|meal|housing|board|association/i.test(label))return;
+    if(/^total|balance|amount|loan fee|\$/i.test(label))return;
+    var key=label.toLowerCase()+'|'+amt;
+    if(seen[key])return;seen[key]=1;
+    var aggregate=/^fees$/i.test(label);
+    var on=!aggregate&&(/tuition/i.test(label)||/comprehensive|health services|technology|lab|library|registration|admission|exam|graduation/i.test(label))&&!/book|parking|insur|ins\.|room|meal|housing|board|association|union|transport|activity/i.test(label);
+    out.push({label:aggregate?'Fees (total of all fee lines)':label,amt:amt,on:on});
+  });
+  return out;
+}
+/*PARSER-END*/
+function statementInfo(lines){
+  var t=lines.join('\n'), o={}, m;
+  m=t.match(/\bName\s+([A-Z][A-Za-z'’\-]+(?:\s+[A-Z][A-Za-z'’\-]+){1,3})\s*$/m);if(m)o.name=m[1];
+  m=t.match(/Student ID\s+([A-Za-z0-9\-]{3,})/);if(m)o.id=m[1];
+  for(var k=0;k<lines.length&&k<15;k++){if(/^([A-Z][\w.&'’\-]*\s+){0,5}(College|University|Institute|Polytechnic)(\s+of(\s+[A-Z][\w.&'’\-]*)+)?$/.test(lines[k].trim())){o.school=lines[k].trim();break}}
+  m=t.match(/,\s*(QC|ON|BC|AB|MB|SK|NS|NB|NL|PE)\s+[A-Z]\d[A-Z]\s?\d[A-Z]\d/);if(m)o.prov=m[1];
+  m=t.match(/\b(Fall|Spring|Winter|Summer)\s+(20\d\d)\b/);
+  if(m){
+    o.term=m[1]+' '+m[2];o.termYear=parseInt(m[2],10);
+    var re=/(\d{1,2})\/(\d{1,2})\/(20\d\d)\s*-\s*(\d{1,2})\/(\d{1,2})\/(20\d\d)/g, d, lo=null, hi=null;
+    while((d=re.exec(t))){
+      if(parseInt(d[3],10)!==o.termYear)continue;
+      var a=new Date(+d[3],+d[1]-1,+d[2]), b=new Date(+d[6],+d[4]-1,+d[5]);
+      if(!lo||a<lo)lo=a;if(!hi||b>hi)hi=b;
+    }
+    if(lo&&hi&&hi>lo)o.months=Math.min(12,Math.ceil((hi-lo)/86400000/30.44));
+  }
+  return o;
+}
+function applyStatementInfo(o){
+  var got=[];
+  if(o.name&&!$('emName').value.trim()){$('emName').value=o.name;got.push('the name')}
+  if(o.school&&!$('emSchool').value.trim()){$('emSchool').value=o.school;got.push('the school')}
+  if(o.id&&!$('emId').value.trim()){$('emId').value=o.id;got.push('the student ID')}
+  var provNew=false;
+  if(o.prov&&!$('prov').value){$('prov').value=o.prov;provPending=true;provNew=true}
+  var moNew=false;
+  if(o.termYear&&o.months){var f=F(o.termYear);if(!f.mo){f.mo=String(o.months);f.moSug=o.term;moNew=true;saveForms()}}
+  saveInputs();
+  var parts=[];
+  if(got.length)parts.push('We filled in '+got.join(', ')+' in the email section from the statement.');
+  if(provNew)parts.push('The address suggests '+(PNAME[o.prov]||o.prov)+'. Confirm it in the next section.');
+  if(moNew)parts.push('We suggested '+o.months+' months for '+o.term+' on the filing sheet. Change it if that is wrong.');
+  $('upInfo').textContent=parts.join(' ');
+  $('periodHint').textContent=o.term?'The statement says "'+o.term+'". A fall or spring statement usually covers one semester.':'';
+}
+function applyUpload(){
+  var sum=0;
+  cands.forEach(function(c,k){var el=$('ln'+k);c.on=el?el.checked:c.on;if(c.on)sum+=c.amt});
+  var agg=cands.some(function(c){return c.on&&/^Fees \(total/.test(c.label)});
+  var ind=cands.some(function(c){return c.on&&!/^Fees \(total/.test(c.label)&&!/tuition/i.test(c.label)});
+  $('upWarn').hidden=!(agg&&ind);
+  var pv=$('period').value, got='Counted US$'+sum.toLocaleString('en-CA',{minimumFractionDigits:2})+' on this statement.';
+  if(!pv){$('upSum').textContent=got+' Choose the period it covers above, and we fill in the yearly tuition.';render();return}
+  var mult=parseFloat(pv)||1, yearTotal=Math.round(sum*mult);
+  $('upSum').textContent=got+' '+(mult===1?'That is the full year, so':'That is about')+' '+usd(yearTotal)+' for the year. We filled that in below.';
+  $('tuition').value=yearTotal;saveInputs();render();
+}
+function showCands(){
+  $('lines').innerHTML=cands.map(function(c,k){
+    return '<label for="ln'+k+'"><input type="checkbox" id="ln'+k+'"'+(c.on?' checked':'')+'><span>'+esc(c.label)+'</span><span class="amt">US$'+c.amt.toLocaleString('en-CA',{minimumFractionDigits:2})+'</span></label>';
+  }).join('');
+  cands.forEach(function(c,k){$('ln'+k).addEventListener('change',applyUpload)});
+  $('period').value='';
+  $('found').hidden=false;applyUpload();
+}
+
+/* ---------- events ---------- */
+var SAVE=['r_home','r_fam','r_return','r_perm','prov','ft','tuition','arrive','years','fx','usinc','salary','tr_who','tr_used','emName','emSchool','emId'];
+function saveInputs(){try{var o={};SAVE.forEach(function(k){o[k]=$(k).value});if(provPending)o.prov='';localStorage.setItem('crosscheck-inputs-v2',JSON.stringify(o))}catch(e){}}
+try{var sv=JSON.parse(localStorage.getItem('crosscheck-inputs-v2')||'{}');SAVE.forEach(function(id){if(sv[id]!=null&&sv[id]!=='')$(id).value=sv[id]})}catch(e){}
+SAVE.concat(['tr_year']).forEach(function(id){$(id).addEventListener('input',function(){if(id==='prov')provPending=false;saveInputs();render()})});
+function setMode(m){mode=m;try{localStorage.setItem('crosscheck-mode',m)}catch(e){}built={};render()}
+$('mP').addEventListener('click',function(){setMode('p')});
+$('mS').addEventListener('click',function(){setMode('s')});
+$('provOk').addEventListener('click',function(){provPending=false;saveInputs();render()});
+$('emYears').addEventListener('input',function(){this.dataset.touched='1';writeEmail()});
+$('emCopy').addEventListener('click',function(){copyText($('emText').value,$('emMsg'),'Copied. Paste it into an email.');emailCopied=true;try{localStorage.setItem('crosscheck-emailcopied','1')}catch(e){}render()});
+$('shareBtn').addEventListener('click',function(){copyText(shareText,$('shareMsg'),'Copied. Paste it into a message.')});
+$('shCopy').addEventListener('click',function(){copyText(sheetText,$('shMsg'),rowsAreEstimate()?'Copied, marked ESTIMATE. Paste it into notes or a spreadsheet.':'Copied. Paste it into notes or a spreadsheet.')});
+function rowsAreEstimate(){return yearRows(readInputs()).some(function(r){return !r.typed})}
+$('period').addEventListener('change',applyUpload);
+$('missRows').addEventListener('change',function(e){var t=e.target;if(!t.dataset||!t.dataset.y)return;F(t.dataset.y).claimed=t.checked;saveForms();render()});
+$('trackRows').addEventListener('input',function(e){var t=e.target;if(!t.dataset||!t.dataset.y)return;F(t.dataset.y)[t.dataset.k]=t.value;saveForms();render()});
+$('trackRows').addEventListener('click',function(e){var t=e.target;if(!t.dataset||!t.dataset.fu)return;copyText(followUp(t.dataset.fu),$('tkMsg'),'Follow-up for '+t.dataset.fu+' copied.')});
+$('sheetRows').addEventListener('input',function(e){
+  var t=e.target;if(!t.dataset||!t.dataset.y)return;
+  var f=F(t.dataset.y);f[t.dataset.k]=t.value;if(t.dataset.k==='amt')delete f.read;if(t.dataset.k==='mo')delete f.moSug;
+  saveForms();render();
+});
+$('file').addEventListener('change',function(e){
+  var f=e.target.files&&e.target.files[0];
+  if(!f)return;
+  if(!/pdf$/i.test(f.type)&&!/\.pdf$/i.test(f.name)){$('upStatus').textContent='That file is not a PDF. Download the statement as a PDF from the billing portal and try again.';return}
+  if(!window.pdfjsLib){$('upStatus').textContent='The PDF reader did not load. Check the connection and reload, or type the tuition in below.';return}
+  $('upStatus').textContent='Reading '+f.name+'…';
+  try{pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'}catch(err){}
+  f.arrayBuffer().then(function(buf){return pdfjsLib.getDocument({data:buf}).promise}).then(function(pdf){
+    var jobs=[];
+    for(var p=1;p<=pdf.numPages;p++){jobs.push(pdf.getPage(p).then(function(pg){return pg.getTextContent()}).then(function(tc){return linesFromItems(tc.items)}))}
+    return Promise.all(jobs);
+  }).then(function(pages){
+    var lines=[].concat.apply([],pages);
+    cands=findCandidates(lines);
+    if(!cands.length){$('found').hidden=true;$('upStatus').textContent='We could not find tuition or fee lines in '+f.name+'. It may be a scanned image. Type the tuition in below instead.';return}
+    addDoc('statement',f).then(render);
+    $('upStatus').textContent='Read '+f.name+' and found '+cands.length+' charge line'+(cands.length>1?'s':'')+'.';
+    stmtInfo=statementInfo(lines);applyStatementInfo(stmtInfo);built={};
+    showCands();
+  }).catch(function(){$('found').hidden=true;$('upStatus').textContent='We could not read that PDF. Try downloading it again, or type the tuition in below.'});
+});
+$('vault').addEventListener('change',function(e){
+  var t=e.target,f=t.files&&t.files[0];
+  if(!f||!t.dataset||!t.dataset.slot)return;
+  if(f.size>15*1024*1024){vmsg('That file is over 15 MB. Save a smaller copy and try again.');return}
+  var ty=/^tl11a-(20\d\d)$/.exec(t.dataset.slot);
+  if(ty){var fo=F(ty[1]);fo.st='rcv';delete fo.issues;saveForms();built={}}
+  addDoc(t.dataset.slot,f).then(render);
+  vmsg('Saved '+f.name+'.');
+  readForm(t.dataset.slot,f);
+});
+$('vault').addEventListener('click',function(e){
+  var t=e.target;if(!t.dataset)return;
+  if(t.dataset.del){if(String(armed)===String(t.dataset.del)){delDoc(t.dataset.del);armed=null;$('preview').hidden=true;built={}}else{armed=t.dataset.del}render();return}
+  if(t.dataset.view){
+    var f=docs.filter(function(x){return String(x.id)===String(t.dataset.view)})[0];if(!f)return;
+    $('preview').hidden=false;$('pvName').textContent=f.name;var body=$('pvBody');body.innerHTML='';
+    if(/^image\//.test(f.type)){var im=document.createElement('img');im.alt=f.name;im.src=URL.createObjectURL(f.blob);body.appendChild(im)}
+    else if((/pdf/.test(f.type)||/\.pdf$/i.test(f.name))&&window.pdfjsLib){
+      f.blob.arrayBuffer().then(function(b){return pdfjsLib.getDocument({data:b}).promise}).then(function(pdf){
+        var n=Math.min(pdf.numPages,5),chain=Promise.resolve();
+        for(var p=1;p<=n;p++){(function(p){chain=chain.then(function(){return pdf.getPage(p)}).then(function(pg){var vp=pg.getViewport({scale:1.4}),c=document.createElement('canvas');c.width=vp.width;c.height=vp.height;body.appendChild(c);return pg.render({canvasContext:c.getContext('2d'),viewport:vp}).promise})})(p)}
+        return chain;
+      }).catch(function(){body.textContent='We could not show this PDF, but it is still saved.'});
+    } else {body.textContent='No preview for this file type, but it is saved.'}
+  }
+});
+render();
+openDb().then(function(d){idb=d;return loadDocs()}).then(render);
+
+</script>
+</body>
+</html>
